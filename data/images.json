@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Мона Лиза",
+    "artist": "Леонардо да Винчи",
+    "url": "static/images/Mona Lisa.webp",
+    "year": "1503-1519"
+  },
+  {
+    "title": "Звёздная ночь",
+    "artist": "Винсент ван Гог",
+    "url": "static/images/Starry Night.webp",
+    "year": "1889"
+  },
+  {
+    "title": "Рождение Венеры",
+    "artist": "Сандро Боттичелли",
+    "url": "static/images/La nascita di Venere.jpg",
+    "year": "1485"
+  },
+  {
+    "title": "Девушка с жемчужной серёжкой",
+    "artist": "Ян Вермеер",
+    "url": "static/images/Woman with a Pearl Earring.jpg",
+    "year": "1665"
+  },
+  {
+    "title": "Крик",
+    "artist": "Эдвард Мунк",
+    "url": "static/images/The Scream.jpg",
+    "year": "1893"
+  },
+  {
+    "title": "Ночной дозор",
+    "artist": "Рембрандт",
+    "url": "static/images/The Nightwatch.jpg",
+    "year": "1642"
+  }
+]

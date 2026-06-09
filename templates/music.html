@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Классическая музыка{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Классическая Музыка</h1>
+    <input type="text" id="searchInput" placeholder="Поиск произведения или композитора..." class="search-box">
+
+    <div class="grid" id="itemsGrid">
+        {% for item in items %}
+        <div class="item" data-title="{{ (item.title + ' ' + item.artist)|lower }}">
+            <img src="{{ item.cover }}" alt="{{ item.title }}" class="cover">
+            <div class="item-content">
+                <h3>{{ item.title }}</h3>
+                <p class="artist">{{ item.artist }}</p>
+                <p>{{ item.year }}</p>
+                <audio controls>
+                    <source src="{{ item.url }}" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

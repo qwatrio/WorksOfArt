@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Лебединое озеро",
+    "artist": "Пётр Чайковский",
+    "url": "https://www.youtube.com/watch?v=79n9i3sap1I",
+    "description": "Балет в Большом театре, постановка 2020 года",
+    "thumbnail": "static/images/Swan Lake.jpg"
+  },
+  {
+    "title": "Щелкунчик",
+    "artist": "Пётр Чайковский",
+    "url": "https://www.youtube.com/watch?v=QF62OlzjwIw",
+    "description": "Новогодний балет, Мариинский театр",
+    "thumbnail": "static/images/Nutcracker.jpg"
+  },
+  {
+    "title": "Кармен",
+    "artist": "Жорж Бизе",
+    "url": "https://youtu.be/K2snTkaD64U",
+    "description": "Опера в Metropolitan Opera",
+    "thumbnail": "static/images/Carmen.jpg"
+  },
+  {
+    "title": "Венский вальс",
+    "artist": "Иоганн Штраус",
+    "url": "https://www.youtube.com/watch?v=zNEXZxVvc6M",
+    "description": "Новогодний концерт в Вене",
+    "thumbnail": "static/images/Viena Waltz.jpg"
+  }
+]

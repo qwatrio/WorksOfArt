@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Мультимедиа{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">Произведения Искусства</a>
+            <div class="nav-links">
+                <a href="/videos">Видео</a>
+                <a href="/images">Картины</a>
+                <a href="/music">Музыка</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="/static/js/search.js"></script>
+    <footer>
+        <p>«Искусство смывает с души пыль повседневной жизни» — Пабло Пикассо</p>
+    </footer>
+</body>
+</html>

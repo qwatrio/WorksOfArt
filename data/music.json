@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Лунная соната",
+    "artist": "Людвиг ван Бетховен",
+    "url": "static/audio/Carmen Suite.mp3",
+    "cover": "static/images/Beethoven.jpg",
+    "year": "1801"
+  },
+  {
+    "title": "Времена года. Лето",
+    "artist": "Антонио Вивальди",
+    "url": "static/audio/Seasons.mp3",
+    "cover": "static/images/Vivaldi.jpg",
+    "year": "1725"
+  },
+  {
+    "title": "Симфония №5",
+    "artist": "Людвиг ван Бетховен",
+    "url": "static/audio/5th Symphony.mp3",
+    "cover": "static/images/Beethoven.jpg",
+    "year": "1808"
+  },
+  {
+    "title": "Реквием",
+    "artist": "Вольфганг Амадей Моцарт",
+    "url": "static/audio/Requiem.mp3",
+    "cover": "static/images/Wolfgang-amadeus-mozart_1.jpg",
+    "year": "1791"
+  },
+  {
+    "title": "Кармен-сюита",
+    "artist": "Жорж Бизе",
+    "url": "static/audio/Carmen Suite.mp3",
+    "cover": "static/images/Georges_bizet.jpg",
+    "year": "1875"
+  },
+  {
+    "title": "Лебединое озеро",
+    "artist": "Пётр Чайковский",
+    "url": "static/audio/Lawn Lake.mp3",
+    "cover": "static/images/Peter.jpg",
+    "year": "1876"
+  }
+]
