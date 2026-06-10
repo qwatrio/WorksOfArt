@@ -1,12 +1,12 @@
-// Поиск
 document.addEventListener('DOMContentLoaded', () => {
+    // Поиск
     const searchInput = document.getElementById('searchInput');
     const items = document.querySelectorAll('.item');
-
+    
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase();
-
+            
             items.forEach(item => {
                 const title = item.getAttribute('data-title');
                 if (title.includes(query)) {
@@ -19,70 +19,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Модальное окно для видео
-function openVideoModal(videoUrl, title) {
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('modalVideo');
-    const videoTitle = document.getElementById('videoTitle');
-
-    video.src = videoUrl;
-    videoTitle.textContent = title;
-    modal.style.display = 'flex';
-    video.play();
-
-    // Блокируем прокрутку страницы
-    document.body.style.overflow = 'hidden';
+// Видео: раскрытие плеера внутри карточки
+function toggleVideo(headerElement) {
+    const item = headerElement.closest('.item');
+    const videoPlayer = item.querySelector('.video-player');
+    
+    if (videoPlayer.style.display === 'none') {
+        videoPlayer.style.display = 'block';
+        const video = videoPlayer.querySelector('video');
+        video.play();
+    } else {
+        videoPlayer.style.display = 'none';
+        const video = videoPlayer.querySelector('video');
+        video.pause();
+    }
 }
 
-function closeVideoModal() {
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('modalVideo');
-
-    video.pause();
-    video.src = '';
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// Модальное окно для картинок
-function openImageModal(imageUrl, title, artist) {
-    const modal = document.getElementById('imageModal');
-    const img = document.getElementById('modalImage');
-    const imageTitle = document.getElementById('imageTitle');
-    const imageArtist = document.getElementById('imageArtist');
-
+// Картинки: fullscreen overlay
+function openFullscreen(imageUrl, title, artist) {
+    const overlay = document.getElementById('fullscreenOverlay');
+    const img = document.getElementById('fullscreenImage');
+    const titleEl = document.getElementById('fullscreenTitle');
+    const artistEl = document.getElementById('fullscreenArtist');
+    
     img.src = imageUrl;
-    imageTitle.textContent = title;
-    imageArtist.textContent = artist;
-    modal.style.display = 'flex';
-
-    // Блокируем прокрутку страницы
+    titleEl.textContent = title;
+    artistEl.textContent = artist;
+    overlay.classList.add('active');
+    
     document.body.style.overflow = 'hidden';
 }
 
-function closeImageModal() {
-    const modal = document.getElementById('imageModal');
-    modal.style.display = 'none';
+function closeFullscreen() {
+    const overlay = document.getElementById('fullscreenOverlay');
+    overlay.classList.remove('active');
     document.body.style.overflow = 'auto';
 }
 
-// Закрытие по клику вне модального окна
-window.onclick = function(event) {
-    const videoModal = document.getElementById('videoModal');
-    const imageModal = document.getElementById('imageModal');
-
-    if (event.target === videoModal) {
-        closeVideoModal();
+// Закрытие по клику на overlay
+document.addEventListener('click', (e) => {
+    const overlay = document.getElementById('fullscreenOverlay');
+    if (overlay && overlay.classList.contains('active')) {
+        closeFullscreen();
     }
-    if (event.target === imageModal) {
-        closeImageModal();
-    }
-}
+});
 
-// Закрытие по Escape
+// Закрытие по ESC
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        closeVideoModal();
-        closeImageModal();
+        closeFullscreen();
     }
 });

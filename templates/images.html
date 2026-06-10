@@ -1,38 +1,33 @@
 {% extends "base.html" %}
 
-{% block title %}Балет и Опера{% endblock %}
+{% block title %}Живопись{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1>🎭 Балет и Опера</h1>
-    <input type="text" id="searchInput" placeholder="Поиск постановки или композитора..." class="search-box">
+    <h1>🎨 Галерея Живописи</h1>
+    <input type="text" id="searchInput" placeholder="Поиск картины или художника..." class="search-box">
 
     <div class="grid" id="itemsGrid">
         {% for item in items %}
-        <div class="item" data-title="{{ (item.title + ' ' + item.artist)|lower }}" onclick="openVideoModal('{{ item.url }}', '{{ item.title }}')">
-            <img src="{{ item.thumbnail }}" alt="{{ item.title }}" class="thumbnail">
+        <div class="item" data-title="{{ (item.title + ' ' + item.artist)|lower }}" onclick="openFullscreen('{{ item.url }}', '{{ item.title }}', '{{ item.artist }}')">
+            <img src="{{ item.url }}" alt="{{ item.title }}" class="artwork-preview">
             <div class="item-content">
                 <h3>{{ item.title }}</h3>
                 <p class="artist">{{ item.artist }}</p>
-                <p>{{ item.description }}</p>
-            </div>
-            <div class="play-overlay">
-                <span class="play-icon">▶</span>
+                <p>{{ item.year }}</p>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
 
-<!-- Модальное окно для видео -->
-<div id="videoModal" class="modal">
-    <div class="modal-content video-modal">
-        <span class="close" onclick="closeVideoModal()">&times;</span>
-        <video id="modalVideo" controls>
-            <source src="" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
-        <h2 id="videoTitle"></h2>
+<!-- Fullscreen overlay для картинок -->
+<div id="fullscreenOverlay" class="fullscreen-overlay">
+    <img id="fullscreenImage" src="" alt="">
+    <div class="fullscreen-info">
+        <h2 id="fullscreenTitle"></h2>
+        <p id="fullscreenArtist"></p>
     </div>
+    <div class="fullscreen-close">ESC или клик для закрытия</div>
 </div>
 {% endblock %}

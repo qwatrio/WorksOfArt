@@ -9,30 +9,25 @@
 
     <div class="grid" id="itemsGrid">
         {% for item in items %}
-        <div class="item" data-title="{{ (item.title + ' ' + item.artist)|lower }}" onclick="openVideoModal('{{ item.url }}', '{{ item.title }}')">
-            <img src="{{ item.thumbnail }}" alt="{{ item.title }}" class="thumbnail">
+        <div class="item" data-title="{{ (item.title + ' ' + item.artist)|lower }}">
+            <div class="item-header" onclick="toggleVideo(this)">
+                <img src="{{ item.thumbnail }}" alt="{{ item.title }}" class="thumbnail">
+                <div class="play-overlay">
+                    <span class="play-icon">▶</span>
+                </div>
+            </div>
             <div class="item-content">
                 <h3>{{ item.title }}</h3>
                 <p class="artist">{{ item.artist }}</p>
                 <p>{{ item.description }}</p>
             </div>
-            <div class="play-overlay">
-                <span class="play-icon">▶</span>
+            <div class="video-player" style="display: none;">
+                <video controls width="100%">
+                    <source src="{{ item.url }}" type="video/mp4">
+                </video>
             </div>
         </div>
         {% endfor %}
-    </div>
-</div>
-
-<!-- Модальное окно для видео -->
-<div id="videoModal" class="modal">
-    <div class="modal-content video-modal">
-        <span class="close" onclick="closeVideoModal()">&times;</span>
-        <video id="modalVideo" controls>
-            <source src="" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
-        <h2 id="videoTitle"></h2>
     </div>
 </div>
 {% endblock %}
