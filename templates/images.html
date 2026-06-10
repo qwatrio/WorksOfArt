@@ -1,23 +1,38 @@
 {% extends "base.html" %}
 
-{% block title %}Живопись{% endblock %}
+{% block title %}Балет и Опера{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1>Галерея Живописи</h1>
-    <input type="text" id="searchInput" placeholder="Поиск картины или художника..." class="search-box">
+    <h1>🎭 Балет и Опера</h1>
+    <input type="text" id="searchInput" placeholder="Поиск постановки или композитора..." class="search-box">
 
     <div class="grid" id="itemsGrid">
         {% for item in items %}
-        <div class="item" data-title="{{ (item.title + ' ' + item.artist)|lower }}">
-            <img src="{{ item.url }}" alt="{{ item.title }}">
+        <div class="item" data-title="{{ (item.title + ' ' + item.artist)|lower }}" onclick="openVideoModal('{{ item.url }}', '{{ item.title }}')">
+            <img src="{{ item.thumbnail }}" alt="{{ item.title }}" class="thumbnail">
             <div class="item-content">
                 <h3>{{ item.title }}</h3>
                 <p class="artist">{{ item.artist }}</p>
-                <p>{{ item.year }}</p>
+                <p>{{ item.description }}</p>
+            </div>
+            <div class="play-overlay">
+                <span class="play-icon">▶</span>
             </div>
         </div>
         {% endfor %}
+    </div>
+</div>
+
+<!-- Модальное окно для видео -->
+<div id="videoModal" class="modal">
+    <div class="modal-content video-modal">
+        <span class="close" onclick="closeVideoModal()">&times;</span>
+        <video id="modalVideo" controls>
+            <source src="" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <h2 id="videoTitle"></h2>
     </div>
 </div>
 {% endblock %}
